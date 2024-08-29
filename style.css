@@ -4,25 +4,22 @@ body{
        background-color:#CCF5FF ;
 }
 .weather-tab{
-   
+    /* opacity: 0.8; */
     position: absolute;
-    margin-top:4%;
+    margin-top:1%;
      margin-left: 20%;
- 
-   
-    padding: 280px;
-   
-    padding-right: 600px;
+    padding: 300px;
+    padding-right: 680px;
     background-color: #F4F4F4;
     border-radius: 40px;
 }
 .side-tab{
  
     position: absolute;
-    margin-top: 4%;
+    margin-top: 1%;
    background-color: #00CCFF;
     border-radius: 40px;
-      padding: 280px;
+      padding: 300px;
     margin-left: 10%;
        padding-left: 70px;
   
@@ -30,30 +27,80 @@ body{
 #locationSideTabTxt{
 position: absolute;
 top: 50px;
-left: 50px;
+font-weight: 700;
+font-size: x-large;
+color: #FFFF;
+left: 100px;
 
+}
+#locationImg{
+    position: absolute;
+    margin-left:-50px ;
+    top: -10px;
+}
+#TempretureTxtSideTab{
+    position: absolute;
+ 
+    margin-left: 50px;
+     font-size:70px;
+     top: 170px;
+     color: #FFFF;
+     background-color: #00CCFF;
+    
+}
+#degressSodeTab{
+    position: absolute;
+    top:203px ;
+    left: 180px;
+    color: #FFFF;
+}
+#nextIcon{
+    position: absolute;
+    right: 10px;
+    top: 260px;
+    color: #FFFF;
+    font-size:60px ;
+}
+#previousIcon{ 
+    position: absolute;
+  left: 10px;
+    top: 260px;
+    color: #FFFF;
+    font-size:60px ;
 }
 #weatherTabSearchLocationTxt{
     position: absolute;
     top: 30px;
     right: 80px;
     padding: 10px;
-    padding-right: 100px;
+    padding-right: 170px;
     border: none;
     border-radius: 40px;
 }
 #iconSearch{
 position: absolute;
 top: 40px;
+cursor: pointer;
 right: 120px;
 }
 #UpcomingWeatherTab{
+   
+    position: absolute;
+    padding:100px;
+    top:100px;
+    background-image: url(img/cloudsbackgroundcrop.jpg);
+    right:70px;
+    padding-right: 480px;
+    /* background-color: red; */
+    border-radius: 40px;
+}
+#previosweatherTab{
     position: absolute;
     padding:60px;
     top:100px;
     background-image: url(img/cloudsbackgroundcrop.jpg);
     right:80px;
-    padding-left: 375px;
+    padding-left: 500px;
     /* background-color: red; */
     border-radius: 40px;
 }
@@ -64,4 +111,300 @@ right: 120px;
     margin-top: 20px; 
     margin-left: 60px;
    
+}
+.humidityTab{
+    position: absolute;
+    padding: 50px;
+    padding-right:150px;
+    margin-top: 70px;
+    border-radius: 20px;
+    background-color:#FFFF
+}
+#windHead{
+    position: absolute;
+    top:-16px ;
+   left:60px;
+   text-align: center;
+}
+.HeadSmallTab{
+    position: absolute;
+    top:-16px ;
+   left:40px;
+   text-align: center;
+}
+.txtSmallTab{
+    position: absolute;
+    top: 28px;
+    left: 80px;
+}
+
+.WindTab{
+    position: absolute;
+    padding: 50px;
+    margin-left: 220px;
+    padding-right:150px;
+    margin-top: 70px;
+    border-radius: 20px;
+    background-color:#FFFF
+}
+.SunRise-setTab{
+    position: absolute;
+    padding: 50px;
+    margin-left: 440px;
+    padding-right:150px;
+    margin-top: 70px;
+    border-radius: 20px;
+    background-color:#FFFF
+}
+#SunRiseHead{
+position: absolute;
+top: -16px;
+left: 80px;
+}
+#sunImg{
+    position: absolute;
+    width: 20%;
+    top:0px ;
+    left: 20px;
+}
+#SunSetHead{
+    position: absolute;
+top: 30px;
+left: 80px;
+}
+#sunRise{
+    position: absolute;
+    top:10px;
+    left: 80px;
+}
+#sunsetImg{
+    position: absolute;
+    width: 20%;
+    top:50px ;
+    left: 20px;
+}
+#sunset{
+    position: absolute;
+    top:55px;
+    left: 80px;
+}
+.CloudsTab{
+    position: absolute;
+    padding: 50px;
+    padding-right:150px;
+    margin-top: 190px;
+    border-radius: 20px;
+    background-color:#FFFF;
+}
+.UVIndexTab{
+    position: absolute;
+    padding: 50px;
+    padding-right:150px;
+    margin-top: 190px;
+    margin-left:220px ;
+    border-radius: 20px;
+    background-color:#FFFF;
+}
+.FellsLokeTab{
+    position: absolute;
+    padding: 50px;
+    padding-right:150px;
+    margin-top: 190px;
+    margin-left:440px ;
+    border-radius: 20px;
+    background-color:#FFFF;
+}
+
+/* .change-weather-btn{
+    position: absolute;
+    background-color: #F4F4F4;
+    padding: 10px;
+    padding-right: ;
+     top: 10px;
+     left: 30px;
+     border-radius:10px;
+} */
+#txtWeatherChange{
+    position: absolute;
+    top: -10px;
+    padding: 3px;
+    font-weight: 600;
+    left:40px;
+    background-color: #E6FAFF;
+    border-radius: 20px;
+}
+#previousclickIcon{
+       top:5px;
+       left: 1px;
+       cursor: pointer;
+}
+#headerMon{
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    font-weight: 600;
+    color: #FFFF;
+}
+#headerTue{
+    position: absolute;
+    top: 30px;
+    left:150px;
+    font-weight: 600;
+    color: #FFFF;
+}
+#headerWed{
+    position: absolute;
+    top: 30px;
+    font-weight: 600;
+    color: #FFFF;
+    left:250px;
+}
+#headerThu{
+    position: absolute;
+    top: 30px;
+    left:370px;
+    font-weight: 600;
+    color: #FFFF;
+}
+#headerFri{
+    position: absolute;
+    top: 30px;
+    left:470px;
+    font-weight: 600;
+    color: #FFFF;
+}
+#MondayImg{
+    position: absolute;
+    font-size:xx-large;
+    top: 70px;
+    left: 60px;
+}
+#TuesdayImg{
+    position: absolute;
+    font-size:xx-large;
+    top: 70px;
+    left: 150px;  
+}
+#WednesdayImg{
+    position: absolute;
+    font-size:xx-large;
+    top: 70px;
+    left: 260px;  
+}
+#ThursdayImg{
+    position: absolute;
+    font-size:xx-large;
+    top: 70px;
+    left: 380px; 
+}
+#FridayImg{
+    position: absolute;
+    font-size:xx-large;
+    top: 70px;
+    left: 470px; 
+}
+#tempretureMonTxt{
+    position: absolute;
+    font-size:x-large;
+    top: 115px;
+    font-weight: 500;
+    color: #FFFF;
+    left: 70px; 
+}
+#tempretureTueTxt{
+    position: absolute;
+    font-size:x-large;
+    top: 115px;
+    font-weight: 500;
+    color: #FFFF;
+    left: 170px; 
+}
+#tempretureWedTxt{
+    position: absolute;
+    font-size:x-large;
+    top: 115px;
+    font-weight: 500;
+    color: #FFFF;
+    left: 270px; 
+}
+#tempretureThuTxt{
+    position: absolute;
+    font-size:x-large;
+    top: 115px;
+    font-weight: 600;
+    color: #FFFF;
+    left: 390px; 
+}
+#tempretureFriTxt{
+    position: absolute;
+    font-size:x-large;
+    top: 115px;
+    font-weight: 600;
+    color: #FFFF;
+    left: 490px; 
+}
+#markIcon{
+    position: absolute;
+    margin-left:-50px ;
+    top: -10px;
+}
+#weathercondition{
+    position: absolute;
+top: 330px;
+font-weight: 700;
+font-size: x-large;
+color: #FFFF;
+left: 150px;
+
+}
+#CurrentLocWCImg{
+    position: absolute;
+    top: 420px;
+  width: 50%;
+}
+#currentdate-time{
+    position: absolute;
+    top: 390px;
+    color: #FFFF;
+}
+#humidtyImg{
+    position: absolute;
+    margin-left: 90px;
+    top: 8px;
+    width: 18%;
+}
+#windImg{
+    position: absolute;
+    margin-left: 90px;
+    top: 2px;
+    width: 18%;
+}
+#cloudImg{
+    position: absolute;
+    margin-left: 90px;
+    top: 2px;
+    width: 18%;
+}
+#uvImg{
+    position: absolute;
+    margin-left: 90px;
+    top: 2px;
+    width: 18%;
+}
+#themoImg{
+    position: absolute;
+    margin-left: 90px;
+    top: 2px;
+    width: 18%;
+}
+#wish{
+    position: absolute;
+    top: 25px;
+    font-weight: 500;
+}
+#wishImg{
+    position: absolute;
+    width: 5%;
+    top: 30px;
+    margin-left: -50px;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +8,99 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
     <div class="container">
-            <div class="weather-tab" >
-                   <input type="text" id="weatherTabSearchLocationTxt" placeholder="Enter your Location">
-                   <i class='bx bx-search' id="iconSearch" ></i>
-                   <div class="upcoming-Weather" id="UpcomingWeatherTab">
-                        <h4>hii</h4>
-                   </div>
-                   
-                   <div class="moredetails">
-                     <h2 >More details of today weather</h2>                               
+        <div class="weather-tab">
+            <input type="text" id="weatherTabSearchLocationTxt" placeholder="Enter your Location">
+            <img id="wishImg" src="img/sun.jpg" alt="">
+            <p id="wish">Good Afternoon</p>
+            <i class='bx bx-search' id="iconSearch" onclick="findLocation()"></i>
+            <div class="upcoming-Weather" id="UpcomingWeatherTab">
+                <p id="txtWeatherChange">
+                    <i class='bx bx-chevron-left' id="previousclickIcon"></i>
+                    Upcoming Weather
+                </p>
+                <p id="headerMon">Monday</p>
+                <p id="headerTue">Tuesday</p>
+                <p id="headerWed">Wednesday</p>
+                <p id="headerThu">Thursday</p>
+                <p id="headerFri">Friday</p>
+                <!-- <i class='bx bx-sun' id="MondayIcon"></i> -->
+                <img src="img/113.webp" alt="" id="MondayImg">
+                <img src="img/353.webp" alt="" id="TuesdayImg">
+                <img src="img/296.webp" alt="" id="WednesdayImg">
+                <img src="img/389.webp" alt="" id="ThursdayImg">
+                <img src="img/122.webp" alt="" id="FridayImg">
+                <p id="tempretureMonTxt"> 25°</p>
+                <p id="tempretureTueTxt"> 27°</p>
+                <p id="tempretureWedTxt"> 30°</p>
+                <p id="tempretureThuTxt"> 24°</p>
+                <p id="tempretureFriTxt"> 23°</p>
             </div>
-    </div>
-<div class="container">
-    <div class="side-tab">
-        <input type="text" id="locationSideTabTxt">
-     
-    </div>
-</div>
-    
-   
-<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="app.js"></script>
+
+            <div class="moredetails">
+                <h2>More details of today weather</h2>
+            </div>
+            <div class="humidityTab">
+                <img id="humidtyImg" src="img/humidity.png" alt="">
+                <h4 class="HeadSmallTab" id="humidHead">Humidity</h4>
+                <!-- <input type="text" id="humidTxt" maxlength="4" size="4"> -->
+                <p class="txtSmallTab" id="humidTxt">82%</p>
+            </div>
+            <div class="WindTab">
+                <img id="windImg" src="img/wind.png" alt="">
+                <h4 class="HeadSmallTab" id="windHead"> Wind</h4>
+                   <p class="txtSmallTab" id="windtxt">8 km/h</p> 
+            </div>
+            <div class="SunRise-setTab">
+                <h4  id="SunRiseHead">Sun Rise</h4>
+                <img src="img/sun.jpg" alt="" id="sunImg">
+                <p id="sunRise">6.36 a.m</p>
+                <h4 id="SunSetHead">Sun Set</h4>
+              <img src="img/moon.jpg" alt="" id="sunsetImg">
+                <p id="sunset">18.30 p.m</p>
+            </div>
+            <div class="CloudsTab">
+                <img id="cloudImg" src="img/cloud.png" alt="">
+                <h4 class="HeadSmallTab" id="cloudshead"> Clouds</h4>
+                <p class="txtSmallTab" id="cloudstxt">75</p> 
+            </div>
+            <div class="UVIndexTab">
+                <img id="uvImg" src="img/uv-sunlight.png" alt="">
+                <h4 class="HeadSmallTab" > UV Index</h4>
+                <p class="txtSmallTab" id="UVindexTxt">0.73</p> 
+            </div>
+            <div class="FellsLokeTab">
+                <img id="themoImg" src="img/thermometer.png" alt="">
+                <h4 class="HeadSmallTab" >Feels Like </h4>
+                <p class="txtSmallTab" id="feelsLikeTxt">30 °C</p> 
+            </div>
+        </div>
+        <div class="container">
+            <div class="side-tab">
+                <!-- <input type="text" id="locationSideTabTxt"> -->
+                <p id="locationSideTabTxt">
+                    <img id="locationImg"  src="img/lcation.png" alt="">
+                    New York,USA </p>
+                <!-- <h2 id="degressSodeTab">0</h2> -->
+                <i class='bx bx-chevron-right' id="nextIcon"></i>
+                <i class='bx bx-chevron-left' id="previousIcon"></i>
+                <p id="TempretureTxtSideTab">27°C</p>
+                <p id="weathercondition">
+                <img src="img/icons8-thermometer-48 (1).png" alt="" id="markIcon">    
+                       Sunny     </p>
+                       <p id="currentdate-time">Wednesday,August29 at 17:16</p>
+                <div id="weather-icon">
+                    <img src="img/113.webp" alt="" id="CurrentLocWCImg"> 
+                </div>
+                
+            </div>
+        </div>
+
+
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+        <script src="app.js"></script>
 </body>
+
 </html>
