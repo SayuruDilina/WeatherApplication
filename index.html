@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -15,7 +16,7 @@
             <input type="text" id="weatherTabSearchLocationTxt" placeholder="Enter your Location">
             <img id="wishImg" src="img/sun.jpg" alt="">
             <p id="wish">Good Afternoon</p>
-            <i class='bx bx-search' id="iconSearch" onclick="findLocation()"></i>
+            <i class='bx bx-search' id="iconSearch"></i>
             <div class="upcoming-Weather" id="UpcomingWeatherTab">
                 <p id="txtWeatherChange">
                     <i class='bx bx-chevron-left' id="previousclickIcon"></i>
@@ -51,56 +52,92 @@
             <div class="WindTab">
                 <img id="windImg" src="img/wind.png" alt="">
                 <h4 class="HeadSmallTab" id="windHead"> Wind</h4>
-                   <p class="txtSmallTab" id="windtxt">8 km/h</p> 
+                <p class="txtSmallTab" id="windtxt">8 km/h</p>
             </div>
             <div class="SunRise-setTab">
-                <h4  id="SunRiseHead">Sun Rise</h4>
+                <h4 id="SunRiseHead">Sun Rise</h4>
                 <img src="img/sun.jpg" alt="" id="sunImg">
                 <p id="sunRise">6.36 a.m</p>
                 <h4 id="SunSetHead">Sun Set</h4>
-              <img src="img/moon.jpg" alt="" id="sunsetImg">
+                <img src="img/moon.jpg" alt="" id="sunsetImg">
                 <p id="sunset">18.30 p.m</p>
             </div>
             <div class="CloudsTab">
                 <img id="cloudImg" src="img/cloud.png" alt="">
                 <h4 class="HeadSmallTab" id="cloudshead"> Clouds</h4>
-                <p class="txtSmallTab" id="cloudstxt">75</p> 
+                <p class="txtSmallTab" id="cloudstxt">75</p>
             </div>
             <div class="UVIndexTab">
                 <img id="uvImg" src="img/uv-sunlight.png" alt="">
-                <h4 class="HeadSmallTab" > UV Index</h4>
-                <p class="txtSmallTab" id="UVindexTxt">0.73</p> 
+                <h4 class="HeadSmallTab"> UV Index</h4>
+                <p class="txtSmallTab" id="UVindexTxt">0.73</p>
             </div>
             <div class="FellsLokeTab">
                 <img id="themoImg" src="img/thermometer.png" alt="">
-                <h4 class="HeadSmallTab" >Feels Like </h4>
-                <p class="txtSmallTab" id="feelsLikeTxt">30 °C</p> 
+                <h4 class="HeadSmallTab">Feels Like </h4>
+                <p class="txtSmallTab" id="feelsLikeTxt">30 °C</p>
             </div>
         </div>
         <div class="container">
             <div class="side-tab">
                 <!-- <input type="text" id="locationSideTabTxt"> -->
                 <p id="locationSideTabTxt">
-                    <img id="locationImg"  src="img/lcation.png" alt="">
-                    New York,USA </p>
+                    <img id="locationImg" src="img/lcation.png" alt="">
+                    New York,USA
+                </p>
                 <!-- <h2 id="degressSodeTab">0</h2> -->
                 <i class='bx bx-chevron-right' id="nextIcon"></i>
                 <i class='bx bx-chevron-left' id="previousIcon"></i>
                 <p id="TempretureTxtSideTab">27°C</p>
                 <p id="weathercondition">
-                <img src="img/icons8-thermometer-48 (1).png" alt="" id="markIcon">    
-                       Sunny     </p>
-                       <p id="currentdate-time">Wednesday,August29 at 17:16</p>
+                    <img src="img/icons8-thermometer-48 (1).png" alt="" id="markIcon">
+                    Sunny
+                </p>
+                <p id="currentdate-time">Wednesday,August29 at 17:16</p>
                 <div id="weather-icon">
-                    <img src="img/113.webp" alt="" id="CurrentLocWCImg"> 
+                    <img src="img/113.webp" alt="" id="CurrentLocWCImg">
                 </div>
-                
+
             </div>
         </div>
 
 
         <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-        <script src="app.js"></script>
+        <!-- <script src="app.js"></script> -->
+
+        <script>
+            const inputlocation = $("#weatherTabSearchLocationTxt");
+            const tempretureTxt = $("#TempretureTxtSideTab")
+            WEATHER_API = `http://api.weatherapi.com/v1/current.json?key=84a486dbf73c4638baa51830242908&q=`;
+            $("#iconSearch").click(function () {
+                fetch(WEATHER_API + inputlocation.val()).then((res) => res.json()).then((data) => {
+                    console.log(data);
+                    console.log(data.current.temp_c);
+                    tempretureTxt.text(`${data.current.temp_c}°C`);
+                    console.log(data.location.name);
+
+                    $("#locationSideTabTxt").html(`<img id="locationImg" src="img/lcation.png" alt=""> ${data.location.name},${data.location.country} `);
+                    $("#weathercondition").html(`<img src="img/icons8-thermometer-48 (1).png" alt="" id="markIcon"> ${data.current.condition.text}`);
+                    const lastupdated = new Date(data.current.last_updated);
+                    const formatdate = new Intl.DateTimeFormat(`en-US`, {
+                        weekday: 'long',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: true
+                    }).format(lastupdated);
+                    $("#currentdate-time").text(`${formatdate}`);
+                    $("#CurrentLocWCImg").attr("src",`${data.current.condition.icon}`)
+                    //code next will be here
+                    
+                }
+              )
+            });
+
+
+
+        </script>
 </body>
 
 </html>

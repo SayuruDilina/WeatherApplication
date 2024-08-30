@@ -349,10 +349,10 @@ left: 80px;
     top: -10px;
 }
 #weathercondition{
-    position: absolute;
+  position: absolute;
 top: 330px;
 font-weight: 700;
-font-size: x-large;
+font-size: large;
 color: #FFFF;
 left: 150px;
 
