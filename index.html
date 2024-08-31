@@ -106,16 +106,34 @@
         <!-- <script src="app.js"></script> -->
 
         <script>
+            const d = new Date("2024-08-31");
+            let day = d.getDate();
+            let month = d.getMonth();
+            //  console.log(month);
+
+            if (month == 7 && day == 31) {
+                let future = 0;
+                let futureday = future + 1;
+                // console.log(futureday);
+            }
+            let previous = day + 5;
+            //      console.log(day);
+            //   console.log(previous);
+
+
+
             const inputlocation = $("#weatherTabSearchLocationTxt");
             const tempretureTxt = $("#TempretureTxtSideTab")
+            let lattiude;
+            let lon;
+
             WEATHER_API = `http://api.weatherapi.com/v1/current.json?key=84a486dbf73c4638baa51830242908&q=`;
+
             $("#iconSearch").click(function () {
                 fetch(WEATHER_API + inputlocation.val()).then((res) => res.json()).then((data) => {
                     console.log(data);
-                    console.log(data.current.temp_c);
-                    tempretureTxt.text(`${data.current.temp_c}°C`);
-                    console.log(data.location.name);
-
+                    let tempreture = Math.round(`${data.current.temp_c}`)
+                    tempretureTxt.text(tempreture + "°C");
                     $("#locationSideTabTxt").html(`<img id="locationImg" src="img/lcation.png" alt=""> ${data.location.name},${data.location.country} `);
                     $("#weathercondition").html(`<img src="img/icons8-thermometer-48 (1).png" alt="" id="markIcon"> ${data.current.condition.text}`);
                     const lastupdated = new Date(data.current.last_updated);
@@ -128,13 +146,86 @@
                         hour12: true
                     }).format(lastupdated);
                     $("#currentdate-time").text(`${formatdate}`);
-                    $("#CurrentLocWCImg").attr("src",`${data.current.condition.icon}`)
+                    $("#CurrentLocWCImg").attr("src", `${data.current.condition.icon}`);
                     //code next will be here
-                    
-                }
-              )
-            });
+                    $("#humidTxt").text(`${data.current.humidity}`);
+                    const wind = `${data.current.wind_kph}`;
+                    let correctwind = Math.round(wind);
+                    $("#windtxt").text(correctwind + "km/h")
+                    lattiude = `${data.location.lat}`;
+                    lon = `${data.location.lon}`;
+                    SUNRISE_SUNSET_API = `https://api.sunrisesunset.io/json?lat=${lattiude}&lng=${lon}`;
+                    fetch(SUNRISE_SUNSET_API).then((res) => res.json()).then((data) => {
+                        $("#sunRise").text(`${data.results.sunrise}`);
+                        $("#sunset").text(`${data.results.sunset}`);
+                    });
+                    $("#cloudstxt").text(`${data.current.cloud}`);
+                    $("#UVindexTxt").text(`${data.current.uv}`)
+                    $("#feelsLikeTxt").text(`${data.current.feelslike_c}°C`);
+                    let getDay = `${data.location.localtime}`;
+                    const setdate = new Date(getDay);
+                    console.log("setdate:" + setdate);
 
+                    let date = setdate.getDate();
+                    let month = setdate.getMonth();
+                    let year = setdate.getFullYear();
+                    const headers = [
+                        "#headerMon",
+                        "#headerTue",
+                        "#headerWed",
+                        "#headerThu",
+                        "#headerFri"
+
+                    ]
+                    const temperatures = [
+                        "#tempretureMonTxt",
+                        "#tempretureTueTxt",
+                        "#tempretureWedTxt",
+                        "#tempretureThuTxt",
+                        "#tempretureFriTxt"
+                    ];
+                    const images = [
+                        "#MondayImg",
+                        "#TuesdayImg",
+                        "#WednesdayImg",
+                        "#ThursdayImg",
+                        "#FridayImg",
+
+                    ]
+                    if (month == 0 || month == 2 || month == 4 || month == 6 || month == 7 || month == 9 || month == 11 && date == 31 || date == 30 || date == 29 || date == 28 || date == 27 || date == 26) {
+                        let futureDates = []
+                        for (let i = 1; i <= 5; i++) {
+                            let futureDate = new Date(year, month, date + i);
+
+                            let futureYear = futureDate.getFullYear();
+                            let futureMonth = futureDate.getMonth() + 1;
+                            let futureDay = futureDate.getDate();
+
+                            let paddedMonth = futureMonth.toString().padStart(2, '0');
+                            let paddedDay = futureDay.toString().padStart(2, '0');
+
+                            let setDate = `${futureYear}-${paddedMonth}-${paddedDay}`
+                            futureDates.push(setDate);
+                        }
+                        WEATHER_API_FUTURE = `http://api.weatherapi.com/v1/marine.json?key=84a486dbf73c4638baa51830242908&q=${inputlocation.val()}&dt=`;
+                        futureDates.forEach((setDate, index) => {
+                            const weeksetDate = new Date(setDate)
+                            const formatdate = new Intl.DateTimeFormat(`en-US`, {
+                                weekday: 'long'
+                            }).format(weeksetDate);
+                            fetch(WEATHER_API_FUTURE + setDate).then((res) => res.json()).then((data) => {
+                                $(temperatures[index]).text(`${data.forecast.forecastday[0].day.maxtemp_c}°`);
+                                $(headers[index]).text(formatdate);
+
+                                $(images[index]).attr("src", `${data.forecast.forecastday[0].day.condition.icon}`)
+                            });
+                        })
+
+                    }
+
+                });
+
+            });
 
 
         </script>
