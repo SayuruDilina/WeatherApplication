@@ -229,13 +229,26 @@ left: 80px;
     top: -10px;
     padding: 3px;
     font-weight: 600;
-    left:40px;
+    left:45px;
     background-color: #E6FAFF;
     border-radius: 20px;
 }
 #previousclickIcon{
-       top:5px;
-       left: 1px;
+    position: absolute;
+       top:10px;
+       left: 15px;
+       font-size: x-large;
+       border-radius: 20px;
+       background-color: #CCF5FF;
+       cursor: pointer;
+}
+#nextclickIcon{
+    position: absolute;
+       top:10px;
+       left: 220px;
+       font-size: x-large;
+       border-radius: 20px;
+       background-color: #CCF5FF;
        cursor: pointer;
 }
 #headerMon{
