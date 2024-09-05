@@ -118,7 +118,11 @@ right: 120px;
     padding-right:150px;
     margin-top: 70px;
     border-radius: 20px;
-    background-color:#FFFF
+    background-color:#FFFF;
+    transition: transform 0.3s;
+}
+.humidityTab:hover{
+    transform:scale(1.05) ;
 }
 #windHead{
     position: absolute;
@@ -145,7 +149,11 @@ right: 120px;
     padding-right:150px;
     margin-top: 70px;
     border-radius: 20px;
-    background-color:#FFFF
+    background-color:#FFFF;
+    transition: transform 0.3s;
+}
+.WindTab:hover{
+    transform:scale(1.05) ;
 }
 .SunRise-setTab{
     position: absolute;
@@ -154,7 +162,11 @@ right: 120px;
     padding-right:150px;
     margin-top: 70px;
     border-radius: 20px;
-    background-color:#FFFF
+    background-color:#FFFF;
+    transition: transform 0.3s;
+}
+.SunRise-setTab:hover{
+    transform: scale(1.05);
 }
 #SunRiseHead{
 position: absolute;
@@ -195,6 +207,10 @@ left: 80px;
     margin-top: 190px;
     border-radius: 20px;
     background-color:#FFFF;
+    transition: transform 0.3s;
+}
+.CloudsTab:hover{
+    transform: scale(1.05);
 }
 .UVIndexTab{
     position: absolute;
@@ -204,6 +220,10 @@ left: 80px;
     margin-left:220px ;
     border-radius: 20px;
     background-color:#FFFF;
+    transition: transform 0.3s;
+}
+.UVIndexTab:hover{
+    transform: scale(1.05);
 }
 .FellsLokeTab{
     position: absolute;
@@ -213,6 +233,10 @@ left: 80px;
     margin-left:440px ;
     border-radius: 20px;
     background-color:#FFFF;
+    transition: transform 0.3s;
+}
+.FellsLokeTab:hover{
+    transform: scale(1.05);
 }
 
 /* .change-weather-btn{
